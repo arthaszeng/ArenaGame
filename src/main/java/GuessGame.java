@@ -20,10 +20,10 @@ public class GuessGame {
 
     public int PlayGame(){
         System.out.println("Welcome!");
+        Collection Collection = new Collection(randNumber, compareNum);
         while (round > 0) {
             String inputNumber = getNumber();
-            CollectionOps collectionOps = new CollectionOps(randNumber, compareNum);
-            String result = collectionOps.guess(inputNumber);
+            String result = Collection.guess(inputNumber);
             if (result.equals("4A0B")) {
                 System.out.println("Congratulations!");
                 return guessRight;

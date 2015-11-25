@@ -9,7 +9,7 @@ public class RandNumber {
     }
 
     public String getNumber() {
-        HashSet<Integer> digits = new HashSet<>();
+        HashSet<Integer> digits = new HashSet<Integer>();
         while(digits.size() < 4){
             digits.add(random.nextInt(10));
         }

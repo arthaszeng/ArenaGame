@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CollectionOpsTest" tests="4" skipped="1" failures="0" errors="0" timestamp="2015-11-25T16:23:52" hostname="Sharon" time="0.242">
+  <properties/>
+  <testcase name="should_fail_when_usr_input_is_not_a_number" classname="CollectionOpsTest" time="0.227"/>
+  <testcase name="should_fail_whne_usr_input_less_than_4_digits" classname="CollectionOpsTest" time="0.001"/>
+  <testcase name="should_fail_when_guessed_mismatch_randed" classname="CollectionOpsTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="should_successfully_when_guessed_match_randnumber" classname="CollectionOpsTest" time="0.013"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

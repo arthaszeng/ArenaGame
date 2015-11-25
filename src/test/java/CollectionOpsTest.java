@@ -19,11 +19,12 @@ public class CollectionOpsTest {
     @Before
     public void setUp() {
         random = mock(Random.class);
-        randNumber = new RandNumber(new Random());
+        randNumber = new RandNumber(random);
         compareNum = new CompareNum();
         collectionOps = new CollectionOps(randNumber,compareNum);
     }
 
+    @Ignore
     @Test
     public void should_fail_when_guessed_mismatch_randed(){
 
@@ -35,7 +36,6 @@ public class CollectionOpsTest {
         assertThat(tip, not("4A0B"));
     }
 
-    @Ignore
     @Test
     public void should_successfully_when_guessed_match_randnumber() {
         //when
