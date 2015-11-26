@@ -9,13 +9,12 @@ public class RandNumber {
     }
 
     public String getNumber() {
+        String result = "";
         HashSet<Integer> digits = new HashSet<Integer>();
         while(digits.size() < 4){
             digits.add(random.nextInt(10));
         }
-
-        String result = "";
-        for (int digit : digits){
+        for (int digit : digits) {
             result += digit;
         }
         return result;

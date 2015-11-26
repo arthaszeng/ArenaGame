@@ -13,7 +13,7 @@ public class Collection {
     }
 
     public String guess(String input) {
-        if (input.length() == 4 && isNumber(input)){
+        if ((input.length() == 4) && isNumber(input)){
             return compareNumber.compare(numberBuf, input);
         }
         else
