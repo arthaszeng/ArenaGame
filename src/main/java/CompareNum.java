@@ -1,8 +1,5 @@
 import static java.lang.String.format;
 
-/**
- * Created by sli on 15-11-21.
- */
 public class CompareNum {
     public static String compare(String inputNum, String srcNum) {
         int aCount = 0;

@@ -17,7 +17,7 @@ public class GuessGame {
     private static final int guessRight = 0;
     private static final int guessFail = -1;
 
-    public Boolean setModle() {
+    public Boolean setMode() {
         System.out.println("Please set game mode |'h':Hell| |'n':Normal| |'e':Easy|");
         String usrInputMode = scanner.next();
         //to solve usr input is incorrect
@@ -46,13 +46,11 @@ public class GuessGame {
     public String getNumber() {
         System.out.println("Please input your number(" + roundMode + ")");
         String usrInputNumber = scanner.next();
-
         //to solve usr input is incorrect
         while (usrInputNumber.length() != 4){
             System.out.println("Please input your number again (4 different digits)");
             usrInputNumber = scanner.next();
         }
-
         roundMode--;
         return usrInputNumber;
     }
@@ -72,7 +70,7 @@ public class GuessGame {
         return guessFail;
     }
 
-    public void askOneMore() {
+    public void replayGame() {
         System.out.println("Do you want play again? Please input 'y' or 'n'");
         String usrInput = scanner.next();
         while(!usrInput.equalsIgnoreCase("y") &&
@@ -90,9 +88,9 @@ public class GuessGame {
         System.out.println("Welcome!");
         while(oneMoreTime) {
             GuessGame guessGame = new GuessGame();
-            guessGame.setModle();
+            guessGame.setMode();
             guessGame.playGame();
-            guessGame.askOneMore();
+            guessGame.replayGame();
         }
     }
 }
