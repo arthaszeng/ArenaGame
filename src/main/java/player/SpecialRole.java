@@ -1,11 +1,14 @@
+package player;
+
+import weapon.Armor;
 import weapon.Weapon;
 
 import java.util.Random;
 
-public class Warrior extends Player{
+public class SpecialRole extends Player {
     private Armor armor;
 
-    public Warrior(String name, int hp, int damage) {
+    public SpecialRole(String name, int hp, int damage) {
         super( name, hp, damage);
         this.role = "战士";
         weapon = new Weapon( "徒手", 0);

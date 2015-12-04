@@ -1,8 +1,10 @@
+package player;
+
 import weapon.Weapon;
 
 import java.util.Random;
 
-public class Player {
+public class AveragePerson {
     private String name;
     protected int hp;
     protected int damage;
@@ -11,7 +13,7 @@ public class Player {
     protected Weapon weapon = null;
     protected String role = "普通人";
 
-    public Player(String name, int hp, int damage) {
+    public AveragePerson(String name, int hp, int damage) {
         this.name = name;
         this.hp = hp;
         this.damage = damage;
@@ -51,7 +53,7 @@ public class Player {
         }
     }
 
-    public String beAttacked(Player theAttacker) {
+    public String beAttacked(AveragePerson theAttacker) {
         Random random = new Random();
         Weapon weaponBuf = theAttacker.weapon;
         int atkDamage;
@@ -74,7 +76,7 @@ public class Player {
         }
     }
 
-    public String attack(Player theDefender) {
+    public String attack(AveragePerson theDefender) {
         if(debuff.isTriggerDebuff()) {
             if (debuff.settleDebuf(this)){
                 isStun = true;

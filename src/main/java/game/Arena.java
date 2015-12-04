@@ -1,3 +1,7 @@
+package game;
+
+import player.Player;
+import player.Warrior;
 import weapon.CritWeapon;
 
 import static java.lang.String.format;
@@ -35,9 +39,9 @@ public class Arena {
         Warrior sli  = new Warrior( "Sli", 30, 2 );
 
         sharon.equipWeapen(new CritWeapon( "风剑", 1, 1, 2, 0.5));
-        sharon.equipArmor( new Armor( "优质秋裤", 1 ) );
+        sharon.equipArmor( new CritWeapon.Armor( "优质秋裤", 1 ) );
         sli.equipWeapen(new CritWeapon( "风剑", 1, 1, 2, 0.5));
-        sli.equipArmor( new Armor( "优质秋裤", 1 ) );
+        sli.equipArmor( new CritWeapon.Armor( "优质秋裤", 1 ) );
 
         arena.fighting( sli, sharon );
     }

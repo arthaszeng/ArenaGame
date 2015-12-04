@@ -1,3 +1,5 @@
+package player;
+
 public class Debuff {
     private String debuffName;
     private int restRounds;
