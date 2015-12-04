@@ -60,7 +60,9 @@ public class AveragePerson {
         Random random = new Random();
         Weapon weaponBuf = theAttacker.weapon;
         int atkDamage;
-        if (weaponBuf != null && weaponBuf.judgePorc(random)) {
+
+        if (weaponBuf != null && weaponBuf.judgePorc(random) && theAttacker.getSpecialAtk()) {
+
             if(weaponBuf.getProcName().equals( "被暴击" )){
                 this.debuff = new Debuff( "被暴击", 0, 0);
                 atkDamage = theAttacker.getDamage() * 3;
@@ -68,23 +70,27 @@ public class AveragePerson {
                 this.debuff = new Debuff( weaponBuf.getProcName(), weaponBuf.getAtkRounds() + this.debuff.getRestRounds(), weaponBuf.getProcDamage() );
                 atkDamage = theAttacker.getDamage();
             }
+
             hp -= atkDamage;
             return String.format( "%s受到了%d点伤害，%s%s了，%s剩余生命：%d",
                     getName(), atkDamage, getName(), weaponBuf.getProcName(), getName(), getHp() );
+
         }else{
             int damageOfAttacker = theAttacker.getDamage();
             hp -= damageOfAttacker;
-            return String.format( "%s受到了%d点伤害，%s剩余生命：%d",
-                    getName(), damageOfAttacker, getName(), getHp() );
+
+            return String.format( "%s受到了%d点伤害，%s剩余生命：%d", getName(), damageOfAttacker, getName(), getHp() );
         }
     }
 
     public String attack(AveragePerson theDefender) {
         if(debuff.isTriggerDebuff()) {
+
             if (debuff.settleDebuf(this)){
                 isStun = true;
                 return "";
             }
+
         }
         return String.format( "%s%s攻击了%s%s，", getRole(), getName(), theDefender.getRole(), theDefender.getName() );
     }

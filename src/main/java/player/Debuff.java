@@ -40,15 +40,13 @@ public class Debuff {
     }
 
     public boolean isTriggerDebuff() {
-        if (restRounds > 0)
-            return true;
-        else
-            return false;
+        return restRounds > 0;
     }
 
     public void poisonAtk(AveragePerson averagePerson) {
-        averagePerson.setHp( averagePerson.getHp() - debuffDamage);
-        System.out.println( averagePerson.getName() + "受到了" + debuffDamage + "毒性攻击，" + averagePerson.getName() + "剩余生命值：" + averagePerson.getHp());
+        averagePerson.setHp( averagePerson.getHp() - averagePerson.debuff.getDebuffDamage());
+        System.out.println( averagePerson.getName() + "受到了" + averagePerson.debuff.getDebuffDamage()
+                + "毒性攻击，" + averagePerson.getName() + "剩余生命值：" + averagePerson.getHp());
     }
 
     public void stunAtk(AveragePerson averagePerson) {
@@ -57,6 +55,6 @@ public class Debuff {
     }
 
     public void critAtk(AveragePerson averagePerson) {
-
+        ;
     }
 }

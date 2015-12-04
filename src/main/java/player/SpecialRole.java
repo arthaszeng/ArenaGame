@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class SpecialRole extends AveragePerson {
     protected Armor armor;
+
     //特殊角色共同属性，可以装备的武器类型
     protected String weaponType;
     //最佳类型武器

@@ -31,6 +31,7 @@ public class Weapon {
         return false;
     }
 
+
     public String getName() {
         return name;
     }
