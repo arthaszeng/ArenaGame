@@ -1,8 +1,11 @@
+import game.Arena;
+import game.OutOfCustom;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
-import weapon.Weapon;
+import player.*;
+import weapon.*;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -26,11 +29,11 @@ public class ArenaTest {
     @Test
     public void should_return_the_weaker_is_loser() {
         //given
-        Player playerA = new Player("Sli", 100, 20);
-        Player playerB = new Player("Sharon", 10, 10);
+        AveragePerson averagePersonA = new AveragePerson("Sli", 100, 20);
+        AveragePerson averagePersonB = new AveragePerson("Sharon", 10, 10);
 
         //when
-        arena.fighting(playerA, playerB);
+        arena.fighting( averagePersonA, averagePersonB );
 
         //then
         inOrder.verify(outOfCustom, times( 1 )).printf("Sharon被击败了\n");
@@ -39,11 +42,11 @@ public class ArenaTest {
     @Test
     public void should_fail_when_not_first_attack() {
         //given
-        Player playerA = new Player("Sli", 10, 20);
-        Player playerB = new Player("Sharon", 10, 20);
+        AveragePerson averagePersonA = new AveragePerson("Sli", 10, 20);
+        AveragePerson averagePersonB = new AveragePerson("Sharon", 10, 20);
 
         //when
-        arena.fighting(playerB, playerA);
+        arena.fighting( averagePersonB, averagePersonA );
 
         //then
         inOrder.verify( outOfCustom, times( 1 )).printf( "普通人Sharon攻击了普通人Sli，" );
@@ -54,8 +57,8 @@ public class ArenaTest {
     @Test
     public void should_return_right_massage_when_warrior_attack_and_equip_weapon_and_armor() {
         //given
-        Warrior playerA = new Warrior("Sli", 40, 20);
-        Warrior playerB = new Warrior("Sharon", 10, 30);
+        SpecialRole playerA = new SpecialRole("Sli", 40, 20);
+        SpecialRole playerB = new SpecialRole("Sharon", 10, 30);
         playerA.equipArmor( testArmor );
         playerB.equipWeapen( testWeapon );
 

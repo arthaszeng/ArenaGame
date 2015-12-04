@@ -5,13 +5,14 @@ import weapon.Weapon;
 import java.util.Random;
 
 public class AveragePerson {
-    private String name;
+    protected String name;
     protected int hp;
     protected int damage;
     protected boolean isStun = false; //这回合是否晕眩
     protected Debuff debuff = new Debuff( "无", 0, 0);
     protected Weapon weapon = null;
     protected String role = "普通人";
+
 
     public AveragePerson(String name, int hp, int damage) {
         this.name = name;
@@ -44,6 +45,8 @@ public class AveragePerson {
     public void setDamag(int damage) {
         this.damage = damage;
     }
+
+    public boolean getSpecialAtk() { return false;}
 
     public boolean isAlive() {
         if (hp > 0) {

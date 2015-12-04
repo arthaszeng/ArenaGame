@@ -10,9 +10,13 @@ public class Weapon {
         this.name = name;
         this.damage = damage;
     }
-//为了呈现多态，下面4个方法是空的
+//为了呈现多态，下面5个方法是空的
+    public String getWeaponType() {
+        return "";
+    }
+
     public String getProcName() {
-        return null;
+        return "";
     }
 
     public int getAtkRounds() {

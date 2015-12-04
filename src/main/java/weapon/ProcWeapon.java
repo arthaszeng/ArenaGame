@@ -8,7 +8,10 @@ public class ProcWeapon extends Weapon {
     protected int procDamge;
     protected double rate;
 
-    private GetRandom getRandom;
+//长短武器属性
+    protected String weaponType;
+
+    private GetRandom getRandom;        //////////这里是否应该传进来？
 
     public ProcWeapon(String name, int damage, int charactorDamge, int atkRounds, double rate) {
         super( name, damage );
@@ -28,6 +31,8 @@ public class ProcWeapon extends Weapon {
     public int getProcDamage() {
         return procDamge;
     }
+
+    public String getWeaponType() { return weaponType;}
 
     public double getRate() {
         return rate;

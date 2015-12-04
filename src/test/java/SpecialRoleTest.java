@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
 import player.SpecialRole;
-import weapon.CritWeapon;
+import weapon.Armor;
 import weapon.Weapon;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -56,7 +56,7 @@ public class SpecialRoleTest {
         //given
         SpecialRole sli = new SpecialRole( "Sli", 100, 20);
         SpecialRole sharon = new SpecialRole( "Sharon", 100, 20);
-        CritWeapon.Armor armor = new CritWeapon.Armor( "秋裤" , 10 );
+        Armor armor = new Armor( "秋裤" , 10 );
 
         //when
         sli.equipArmor( armor );
@@ -71,7 +71,7 @@ public class SpecialRoleTest {
         //given
         SpecialRole sli = new SpecialRole( "Sli", 100, 20);
         SpecialRole sharon = new SpecialRole( "Sharon", 100, 20);
-        CritWeapon.Armor armor = new CritWeapon.Armor( "秋裤" , 100 );
+        Armor armor = new Armor( "秋裤" , 100 );
 
         //when
         sli.equipArmor( armor );

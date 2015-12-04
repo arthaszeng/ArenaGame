@@ -1,8 +1,12 @@
 package game;
 
-import player.Player;
-import player.Warrior;
+import player.Assassin;
+import player.AveragePerson;
+import player.Knight;
+import player.SpecialRole;
+import weapon.Armor;
 import weapon.CritWeapon;
+import weapon.StunWeapon;
 
 import static java.lang.String.format;
 
@@ -13,17 +17,19 @@ public class Arena {
         this.outOfCustom = outOfCustom;
     }
 
-    public void fighting(Player playerA, Player playerB) {
-        Player attacker = playerA;
-        Player defender = playerB;
-        Player loser = attacker;
+    public void fighting(AveragePerson averagePersonA, AveragePerson averagePersonB) {
+        AveragePerson attacker = averagePersonA;
+        AveragePerson defender = averagePersonB;
+        AveragePerson loser = attacker;
 
         while (attacker.isAlive()){
             outOfCustom.printf(format("%s", attacker.attack(defender)) );
             String msg = defender.beAttacked(attacker);
+
             if(!msg.isEmpty()){
                 outOfCustom.printf(format("%s\n", msg));
             }
+
             loser = defender;
             defender = attacker;
             attacker = loser;
@@ -35,13 +41,13 @@ public class Arena {
     public static void main(String args[]) {
         OutOfCustom outOfCustom = new OutOfCustom();
         Arena arena = new Arena( outOfCustom );
-        Warrior sharon = new Warrior("Sharon", 30, 2);
-        Warrior sli  = new Warrior( "Sli", 30, 2 );
+        SpecialRole sharon = new Assassin("Sharon", 20, 2);
+        SpecialRole sli  = new Knight( "Sli", 20, 2 );
 
-        sharon.equipWeapen(new CritWeapon( "风剑", 1, 1, 2, 0.5));
-        sharon.equipArmor( new CritWeapon.Armor( "优质秋裤", 1 ) );
-        sli.equipWeapen(new CritWeapon( "风剑", 1, 1, 2, 0.5));
-        sli.equipArmor( new CritWeapon.Armor( "优质秋裤", 1 ) );
+        sharon.equipWeapen(new CritWeapon( "风剑", 1, "长", 1, 2, 0.5));
+        sharon.equipArmor( new Armor( "优质秋裤", 1 ) );
+        sli.equipWeapen(new StunWeapon( "兄弟会之剑", 1, "长", 1, 2, 0.2));
+        sli.equipArmor( new Armor( "优质秋裤", 1 ) );
 
         arena.fighting( sli, sharon );
     }
