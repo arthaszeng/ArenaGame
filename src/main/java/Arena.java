@@ -1,4 +1,4 @@
-import weapon.StunWeapon;
+import weapon.CritWeapon;
 
 import static java.lang.String.format;
 
@@ -31,10 +31,14 @@ public class Arena {
     public static void main(String args[]) {
         OutOfCustom outOfCustom = new OutOfCustom();
         Arena arena = new Arena( outOfCustom );
-        Player sharon = new Player("Sharon", 30, 2);
+        Warrior sharon = new Warrior("Sharon", 30, 2);
         Warrior sli  = new Warrior( "Sli", 30, 2 );
-        sli.equipWeapen(new StunWeapon( "风剑", 1, 1, 1, 0.3));
+
+        sharon.equipWeapen(new CritWeapon( "风剑", 1, 1, 2, 0.5));
+        sharon.equipArmor( new Armor( "优质秋裤", 1 ) );
+        sli.equipWeapen(new CritWeapon( "风剑", 1, 1, 2, 0.5));
         sli.equipArmor( new Armor( "优质秋裤", 1 ) );
+
         arena.fighting( sli, sharon );
     }
 }
